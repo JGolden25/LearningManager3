@@ -21,10 +21,14 @@ app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
+import courseRoutes from "./routes/courseRoutes";
 
 app.get("/", (req, res) => {
     res.send("Hello World");
   });
+
+  app.use("/courses", courseRoutes);
+
 
   const port = process.env.PORT || 3000;
 if (!isProduction) {
