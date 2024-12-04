@@ -5,6 +5,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import * as dynamoose from "dynamoose";
+import courseRoutes from "./routes/courseRoutes";
 
 dotenv.config();
 
@@ -21,7 +22,6 @@ app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-import courseRoutes from "./routes/courseRoutes";
 
 app.get("/", (req, res) => {
     res.send("Hello World");
