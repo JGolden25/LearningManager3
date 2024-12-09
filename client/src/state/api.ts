@@ -26,7 +26,7 @@ const customBaseQuery = async (
 };
 
 export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
+  baseQuery: customBaseQuery,
   reducerPath: "api",
   tagTypes: ["Courses"],
   endpoints: (build) => ({
@@ -36,7 +36,6 @@ export const api = createApi({
         params: { category },
       }),
       providesTags: ["Courses"],
-
     }),
     getCourse: build.query<Course, string>({
       query: (id) => `courses/${id}`,
